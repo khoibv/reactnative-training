@@ -4,8 +4,6 @@ import {Image, StyleSheet, Text, View} from 'react-native';
 const PhotoItem = (props) => {
   const {photo} = props;
 
-  console.log('Rendering photo', props);
-
   return (
     <View style={styles.container}>
       <Image source={{uri: photo.thumbnailUrl}} style={styles.img} />

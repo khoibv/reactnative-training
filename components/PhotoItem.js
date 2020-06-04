@@ -7,7 +7,7 @@ const PhotoItem = (props) => {
   return (
     <View style={styles.container}>
       <Image source={{uri: photo.thumbnailUrl}} style={styles.img} />
-      <Text style={styles.title}>{photo.title}</Text>
+      <Text style={styles.title}>{photo.title.substring(0, 20)} ...</Text>
     </View>
   );
 };

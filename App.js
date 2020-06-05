@@ -7,19 +7,10 @@
  */
 
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import MainNavigator from './navigations';
 
 const App: () => React$Node = () => {
-  return (
-    <View style={{flex: 1}}>
-      <View style={{alignItems: 'center'}}>
-        <Text style={{color: 'blue', fontSize: 32}}>Hi ReactNative</Text>
-      </View>
-      <View style={{flex: 1, backgroundColor: '#E93E43'}} />
-      <View style={{flex: 2, backgroundColor: '#F5A942'}} />
-      <View style={{flex: 3, backgroundColor: '#4EBC7A'}} />
-    </View>
-  );
+  return <MainNavigator />;
 };
 
 export default App;

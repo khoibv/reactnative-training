@@ -6,19 +6,27 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
+import {useAppContext} from '../AppContext';
 
-const LoginForm = () => {
+const LoginForm = ({navigation}) => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [msg, setMessage] = useState('');
+  const {actions: appActions} = useAppContext();
 
   const login = () => {
-    const message = `Your inputs are: { username: ${name}, password: ${password} }`;
-    setMessage(message);
+    // TODO: Check auth here
+    if (name === 'admin' && password === 'admin') {
+      // if success, navigate to Home screen
+      appActions.login();
+    } else {
+      const message = `Your username or password are incorrect`;
+      setMessage(message);
+    }
   };
 
   return (
-    <View>
+    <View style={styles.container}>
       <View style={{alignItems: 'center'}}>
         <Text>Login account</Text>
       </View>
@@ -42,7 +50,7 @@ const LoginForm = () => {
         </TouchableOpacity>
       </View>
 
-      <Text>{msg}</Text>
+      <Text style={styles.errMessage}>{msg}</Text>
     </View>
   );
 };
@@ -50,6 +58,10 @@ const LoginForm = () => {
 export default LoginForm;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 8,
+  },
   input: {
     borderBottomWidth: 1,
     borderColor: '#E93E43',
@@ -68,5 +80,9 @@ const styles = StyleSheet.create({
   buttonText: {
     fontWeight: '700',
     fontSize: 16,
+  },
+  errMessage: {
+    color: '#E93E43',
+    paddingVertical: 16,
   },
 });

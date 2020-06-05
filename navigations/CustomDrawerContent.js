@@ -7,16 +7,16 @@ import {
   DrawerItem,
 } from '@react-navigation/drawer';
 import DrawerHeader from './DrawerHeader';
+import {useAppContext} from '../AppContext';
 
 const CustomDrawerContent = (props) => {
+  const {actions: appActions} = useAppContext();
+
   return (
     <DrawerContentScrollView {...props}>
       <DrawerHeader />
       <DrawerItemList {...props} />
-      <DrawerItem
-        label="Logout"
-        onPress={() => Alert.alert('You logged out')}
-      />
+      <DrawerItem label="Logout" onPress={() => appActions.logout()} />
       <DrawerItem
         label="Help"
         onPress={() => Linking.openURL('https://www.nissho-vn.com/en/')}

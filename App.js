@@ -8,9 +8,14 @@
 
 import React from 'react';
 import MainNavigator from './navigations';
+import {AppProvider} from './AppContext';
 
 const App: () => React$Node = () => {
-  return <MainNavigator />;
+  return (
+    <AppProvider>
+      <MainNavigator />
+    </AppProvider>
+  );
 };
 
 export default App;

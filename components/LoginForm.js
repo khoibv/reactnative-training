@@ -20,7 +20,7 @@ const LoginForm = ({navigation}) => {
       // if success, navigate to Home screen
       appActions.login();
     } else {
-      const message = `Your username or password are incorrect`;
+      const message = 'Your username or password are incorrect';
       setMessage(message);
     }
   };
@@ -45,7 +45,7 @@ const LoginForm = ({navigation}) => {
       />
 
       <View style={{alignItems: 'center'}}>
-        <TouchableOpacity onPress={login} style={styles.button}>
+        <TouchableOpacity onPress={login} style={{...styles.button}}>
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
       </View>

@@ -5,12 +5,12 @@ const PhotoDetails = ({route, navigation}) => {
   const photo = route.params;
 
   return (
-    <View style={{borderWidth: 1, flex: 1}}>
-      <View style={{flex: 1}}>
+    <View style={styles.container}>
+      <View style={styles.container}>
         <Image source={{uri: photo.url}} style={styles.img} />
       </View>
 
-      <View style={{flex: 1, alignItems: 'center'}}>
+      <View style={{...styles.container, ...styles.textContainer}}>
         <Text>{photo.title}</Text>
       </View>
     </View>
@@ -20,6 +20,11 @@ const PhotoDetails = ({route, navigation}) => {
 export default PhotoDetails;
 
 const styles = StyleSheet.create({
+  container: {flex: 1},
+  textContainer: {
+    alignItems: 'center',
+    paddingTop: 8,
+  },
   img: {
     width: '100%',
     height: '100%',
